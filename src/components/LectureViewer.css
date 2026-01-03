@@ -1,0 +1,145 @@
+.lecture-viewer {
+  display: flex;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.slide-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+}
+
+.slide {
+  max-width: 900px;
+  width: 100%;
+  padding: 3rem;
+}
+
+.slide-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.slide-content {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.slide-content p {
+  margin-bottom: 1rem;
+}
+
+.slide-footer {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.slide-counter {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.notes-panel {
+  background: #2d3748;
+  color: white;
+  padding: 2rem;
+  height: 300px;
+  overflow-y: auto;
+  border-top: 2px solid #667eea;
+}
+
+.notes-header {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #667eea;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.notes-content {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.controls {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.control-btn {
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: #5568d3;
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Presenter mode adjustments */
+.lecture-viewer.presenter-mode .slide-container {
+  height: calc(100vh - 300px);
+}
+
+.lecture-viewer.presenter-mode .slide {
+  padding: 2rem;
+}
+
+.lecture-viewer.presenter-mode .slide-title {
+  font-size: 2rem;
+}
+
+.lecture-viewer.presenter-mode .slide-content {
+  font-size: 1.2rem;
+}
+
+/* Fullscreen mode for projection */
+@media screen and (min-width: 1920px) {
+  .slide-title {
+    font-size: 4rem;
+  }
+
+  .slide-content {
+    font-size: 2rem;
+  }
+}
